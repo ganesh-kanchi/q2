@@ -8,27 +8,23 @@ var increment = 4 ;
 var textSize = text.style.fontSize;
 
 input.addEventListener( "input" , () => {
-    // console.log(this.change)
-    // text.innerText = "Welcome, " + input.value ;
     text.innerText = input.value ;
 });
 
-increase.addEventListener("wheel" , () => {
+function increaseSize(){
     text.style.fontSize = `${number+ increment}px`;
     number+=  increment;
-});
+}
 
-decrease.addEventListener("wheel" , () => {
-    text.style.fontSize = `${number - increment}px`;
-    number -= increment;
-});
+function decreaseSize(){
+    text.style.fontSize = `${number- increment}px`;
+    number-=  increment;
+}
 
-increase.addEventListener("click" , () => {
-    text.style.fontSize = `${number+ increment}px`;
-    number+=  increment;
-});
+increase.addEventListener("wheel" , increaseSize);
 
-decrease.addEventListener("click" , () => {
-    text.style.fontSize = `${number - increment}px`;
-    number -= increment;
-});
+decrease.addEventListener("wheel" , decreaseSize);
+
+increase.addEventListener("click" , increaseSize);
+
+decrease.addEventListener("click" , decreaseSize);
